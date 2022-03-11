@@ -140,29 +140,21 @@
                 .then(response => response.text())
                 .then(data => {
                     data.replace(/\r/g, '');
-                    // remove empty
-                    let spltdata = data.split('\n');
-                    for (let i = spltdata.length-1; i >= 0; i--) {
-                        // remove empty
-                        if (!spltdata[i]){
-                            spltdata.splice(i, 1);
-                        } else if (spltdata[i] == '\n') {
-                            spltdata.splice(i,1);
-                        } else if spltdata[i] !== 'undefined') {
-                            spltdata[i] =  '[' + new Date().toUTCString() + '] ' + spltdata[i]; // added timestamp for endurance testing
-                        }
-                    }
-                    this.logs += spltdata.join('\n');
-                    if (this.logs.charAt(this.logs.length - 1) !== '\n') {
-                        this.logs += '\n';
+                    if (data.length > 1) {
+                        data =  '[' + new Date().toUTCString() + '] ' + data; // added timestamp for endurance testing
+                        this.logs += data;
                     }
                     let splt = this.logs.split('\n');
+                    // remove empty
+                    for (let i = splt.length-1; i >= 0; i--) {
+                        if (!splt[i]){
+                            splt.splice(i, 1);
+                        }
+                    }
 
-
-                    // while (splt.length > 400){
-                    //    // splt.shift();
-                    //    splt.pop();
-                    // } // dont truncate for endurance logging
+                    //while (splt.length > 400){
+                    //    splt.shift();
+                    //}
 
                     if (this.$refs['logs']){
                         let scrollTop = this.$refs['logs'].scrollTop;
