@@ -148,8 +148,9 @@
                             spltdata.splice(i, 1);
                         } else if (spltdata[i] == '\n') {
                             spltdata.splice(i,1);
+                        } else {
+                            spltdata[i] =  '[' + new Date().toUTCString() + '] ' + spltdata[i]; // added timestamp for endurance testing
                         }
-                        spltdata[i] =  '[' + new Date().toUTCString() + '] ' + spltdata[i]; // added timestamp for endurance testing
                     }
                     this.logs += spltdata.join('\n');
                     this.logs += '\n';
