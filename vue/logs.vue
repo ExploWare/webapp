@@ -141,9 +141,9 @@
                 .then(data => {
                     data.replace(/\r/g, '');
                     if (data.length > 1) {
-                        data =  '[' + new Date().toUTCString() + '] ' + data; // added timestamp for endurance testing
-                        this.logs += data;
+                        data =  '\n' + new Date().toUTCString() + '> ' + data; // added timestamp for endurance testing
                     }
+                    this.logs += data;
                     let splt = this.logs.split('\n');
                     // remove empty
                     for (let i = splt.length-1; i >= 0; i--) {
