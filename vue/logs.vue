@@ -148,7 +148,7 @@
                             spltdata.splice(i, 1);
                         } else if (spltdata[i] == '\n') {
                             spltdata.splice(i,1);
-                        } else {
+                        } else if spltdata[i] != 'undefined') {
                             spltdata[i] =  '[' + new Date().toUTCString() + '] ' + spltdata[i]; // added timestamp for endurance testing
                         }
                     }
