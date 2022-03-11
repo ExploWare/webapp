@@ -149,9 +149,9 @@
                         } else if (splt[i] == '\n') {
                             splt.splice(i,1);
                         }
-                        splt[i] =  '[' + new Date().toUTCString() + '] ' + splt[i] + '\n'; // added timestamp for endurance testing
+                        splt[i] =  '[' + new Date().toUTCString() + '] ' + splt[i]; // added timestamp for endurance testing
                     }
-                    this.logs += splt.join('\n');
+                    this.logs += splt.join('\n') + '\n';
                     let splt = this.logs.split('\n');
 
 
