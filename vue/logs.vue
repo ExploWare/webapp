@@ -140,18 +140,22 @@
                 .then(response => response.text())
                 .then(data => {
                     data.replace(/\r/g, '');
-                    this.logs += data;
+                    // this.logs += data;
+                    this.logs = '[' + new Date().toUTCString() + '] ' + data + this.logs ;
                     let splt = this.logs.split('\n');
                     // remove empty
                     for (let i = splt.length-1; i >= 0; i--) {
                         if (!splt[i]){
                             splt.splice(i, 1);
+                        } else if (splt[i] == '\n') {
+                            splt.splice(i,1);
                         }
                     }
 
-                    while (splt.length > 400){
-                        splt.shift();
-                    }
+                    // while (splt.length > 400){
+                    //    // splt.shift();
+                    //    splt.pop();
+                    // } // dont truncate for endurance logging
 
                     if (this.$refs['logs']){
                         let scrollTop = this.$refs['logs'].scrollTop;
