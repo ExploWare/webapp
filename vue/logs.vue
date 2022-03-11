@@ -140,16 +140,20 @@
                 .then(response => response.text())
                 .then(data => {
                     data.replace(/\r/g, '');
-                    this.logs +=  '[' + new Date().toUTCString() + '] ' + data; // added timestamp for endurance testing
-                    let splt = this.logs.split('\n');
                     // remove empty
+                    let splt = data.split('\n');
                     for (let i = splt.length-1; i >= 0; i--) {
+                        // remove empty
                         if (!splt[i]){
                             splt.splice(i, 1);
                         } else if (splt[i] == '\n') {
                             splt.splice(i,1);
                         }
+                        splt[i] =  '[' + new Date().toUTCString() + '] ' + splt[i]; // added timestamp for endurance testing
                     }
+                    this.logs += splt.join('\n');
+                    let splt = this.logs.split('\n');
+
 
                     // while (splt.length > 400){
                     //    // splt.shift();
