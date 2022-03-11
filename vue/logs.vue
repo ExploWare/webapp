@@ -140,8 +140,7 @@
                 .then(response => response.text())
                 .then(data => {
                     data.replace(/\r/g, '');
-                    // this.logs += data;
-                    this.logs = '[' + new Date().toUTCString() + '] ' + data + this.logs ;
+                    this.logs +=  '[' + new Date().toUTCString() + '] ' + data; // added timestamp for endurance testing
                     let splt = this.logs.split('\n');
                     // remove empty
                     for (let i = splt.length-1; i >= 0; i--) {
