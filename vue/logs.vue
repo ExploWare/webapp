@@ -151,7 +151,8 @@
                         }
                         spltdata[i] =  '[' + new Date().toUTCString() + '] ' + spltdata[i]; // added timestamp for endurance testing
                     }
-                    this.logs += spltdata.join('\n') + '\n';
+                    this.logs += spltdata.join('\n');
+                    this.logs += '\n';
                     let splt = this.logs.split('\n');
 
 
