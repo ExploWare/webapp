@@ -153,7 +153,9 @@
                         }
                     }
                     this.logs += spltdata.join('\n');
-                    this.logs += '\n';
+                    if (!this.logs.endsWith('\n')) {
+                        this.logs += '\n';
+                    }
                     let splt = this.logs.split('\n');
 
 
