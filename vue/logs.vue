@@ -148,12 +148,12 @@
                             spltdata.splice(i, 1);
                         } else if (spltdata[i] == '\n') {
                             spltdata.splice(i,1);
-                        } else if spltdata[i] != 'undefined') {
+                        } else if spltdata[i] !== 'undefined') {
                             spltdata[i] =  '[' + new Date().toUTCString() + '] ' + spltdata[i]; // added timestamp for endurance testing
                         }
                     }
                     this.logs += spltdata.join('\n');
-                    if (this.logs.charAt(this.logs.length - 1) != '\n') {
+                    if (this.logs.charAt(this.logs.length - 1) !== '\n') {
                         this.logs += '\n';
                     }
                     let splt = this.logs.split('\n');
