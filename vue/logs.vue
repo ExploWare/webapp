@@ -152,7 +152,7 @@
                         splt[i] =  '[' + new Date().toUTCString() + '] ' + splt[i]; // added timestamp for endurance testing
                     }
                     this.logs += splt.join('\n') + '\n';
-                    let splt = this.logs.split('\n');
+                    splt = this.logs.split('\n');
 
 
                     // while (splt.length > 400){
