@@ -141,18 +141,18 @@
                 .then(data => {
                     data.replace(/\r/g, '');
                     // remove empty
-                    let splt = data.split('\n');
-                    for (let i = splt.length-1; i >= 0; i--) {
+                    let spltdata = data.split('\n');
+                    for (let i = spltdata.length-1; i >= 0; i--) {
                         // remove empty
-                        if (!splt[i]){
-                            splt.splice(i, 1);
-                        } else if (splt[i] == '\n') {
-                            splt.splice(i,1);
+                        if (!spltdata[i]){
+                            spltdata.splice(i, 1);
+                        } else if (spltdata[i] == '\n') {
+                            spltdata.splice(i,1);
                         }
-                        splt[i] =  '[' + new Date().toUTCString() + '] ' + splt[i]; // added timestamp for endurance testing
+                        spltdata[i] =  '[' + new Date().toUTCString() + '] ' + spltdata[i]; // added timestamp for endurance testing
                     }
-                    this.logs += splt.join('\n') + '\n';
-                    splt = this.logs.split('\n');
+                    this.logs += spltdata.join('\n') + '\n';
+                    let splt = this.logs.split('\n');
 
 
                     // while (splt.length > 400){
